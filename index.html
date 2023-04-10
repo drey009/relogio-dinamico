@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script language=javascript type="text/javascript">
+        dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado")
+        monName = new Array("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro")
+        now = new Date
+    </script>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/4305/4305432.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Horário de Brasília</title>
+</head>
+
+<body id="bg">
+    <h1>Just stay calm</h1>
+
+    <div class="clock">
+        <script src="main.js"></script>
+
+    </div>
+
+    <!-- <div class="frase"></div> -->
+
+    <div class="date">
+            <script language=javascript type="text/javascript">
+            document.write("<h2><u> Hoje é " + dayName[now.getDay()] + ", " + now.getDate() + " de " + monName[now.getMonth()] + " de " + now.getFullYear() + ".</u> </h2>")
+        </script> 
+    </div>
+
+    <div class="fado">
+        <audio id="player"></audio>
+        <script language="javascript" type="text/javascript">
+
+            /* Objects */
+            var _player = document.getElementById('player');
+
+            /* Aplication */
+            var tracks = [
+                'songs/sound.mp3',
+                'songs/night_street.mp3',
+                'songs/lofi_study.mp3',
+                'songs/60s.mp3',
+                'songs/ambiental.mp3'
+            ];
+
+            function playNext() {
+                var track = tracks[Math.floor(Math.random() * tracks.length)];
+
+                _player.src = track;
+                return _player.play();
+            }
+
+            /* Events */
+            window.addEventListener('load', playNext);
+            _player.addEventListener('ended', playNext);
+
+        </script>
+    </div>
+    <div id="imgBox">
+        <img src="https://miro.medium.com/freeze/fit/c/56/56/0*BaN9eXoTV-r1AKge.gif" width="500px" height="500px" id="myImg">
+    </div>
+
+    <footer> &copy; Criado por Andrey <br> <img src="images/github.png"> <a href="https://github.com/drey009/">GITHUB</a>
+    </footer>
+</body>
+
+</html>
